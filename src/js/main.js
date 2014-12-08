@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	//test comment
+
 	//this is where your app page logic lives
 	Visualforce.remoting.Manager.invokeAction (
 		$config.jsr.myFunction,
@@ -27,6 +27,7 @@ $(document).ready(function(){
 	);
 
 	function doThatThing(msg){
+		var randColor = '#'+Math.floor(Math.random()*16777215).toString(16);
 		Visualforce.remoting.Manager.invokeAction (
 			$config.jsr.myOtherFunction,
 			msg,
@@ -34,7 +35,7 @@ $(document).ready(function(){
 				console.log('mock result:',result);
 			 	if(event.status){
 
-					$.myModule({backgroundColor:'lightblue',selector: '#ready3', message: result.msg});
+					$.myModule({backgroundColor:randColor,selector: '#ready3', message: randColor + ' ' + result.msg});
 
 			 	}
 			}

@@ -8,7 +8,7 @@
 	<div id="ready2" class="ready"><img src="img/loading.gif" alt="loading"/></div>
 	<div id="ready3" class="ready"><img src="img/loading.gif" alt="loading"/></div>
 
-	<button id="do">do it</button>
+	<!-- <button id="do">do it</button> -->
 
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 
@@ -20,14 +20,14 @@
 		},
 		mocks :{
 			'{!$RemoteAction.SPA.myFunction}' : {
-				timeout : 250,
+				timeout : 0,
 				method : function(args){
 					console.log('args',args);
 					return { msg:  args[1]}
 				}
 			},
 			'{!$RemoteAction.SPA.myOtherFunction}' : {
-				timeout : 2000,
+				timeout : 750,
 				method : function(args){
 					console.log('args',args);
 					return { msg:  args[1]}
