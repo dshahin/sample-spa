@@ -1,4 +1,4 @@
-sample-spa
+installation
 ==========
 
  * ```npm install```
