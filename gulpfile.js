@@ -3,7 +3,9 @@ var gulp = require('gulp'),
     minifyCSS = require('gulp-minify-css'),
     env = process.env.NODE_ENV,
     webserver = require('gulp-webserver'),
-    zip = require('gulp-zip');
+    zip = require('gulp-zip'),
+    imagemin = require('gulp-imagemin'),
+    pngquant = require('imagemin-pngquant');
 console.log(env);
 // Scripts Task
 gulp.task('scripts',function(){
@@ -24,6 +26,11 @@ gulp.task('styles',function(){
 // Images Task
 gulp.task('images',function(){
     gulp.src('src/img/**')
+    .pipe(imagemin({
+        progressive: true,
+        svgoPlugins: [{removeViewBox: false}],
+        use: [pngquant()]
+    }))
     .pipe(gulp.dest('static/img'));
 });
 
