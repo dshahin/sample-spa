@@ -1,0 +1,12 @@
+body{
+	font-family: sans-serif;
+	margin: 12px;
+    font-size: 24px;
+}
+#ready{
+	background-color: pink;
+
+}
+div.ready{
+	padding-bottom: 5px;
+}

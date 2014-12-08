@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Hey Now!</title>
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<h1>My local page that thinks it is a VF Page</h1>
+	<div id="ready" class="ready">I am ready already</div>
+	<div id="ready2" class="ready"><img src="img/loading.gif" alt="loading"/></div>
+	<div id="ready3" class="ready"><img src="img/loading.gif" alt="loading"/></div>
+
+	<button id="do">do it</button>
+
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+
+	<script>
+	var $config = {
+		jsr: {
+			myFunction :'{!$RemoteAction.SPA.myFunction}',
+			myOtherFunction :'{!$RemoteAction.SPA.myOtherFunction}'
+		},
+		mocks :{
+			'{!$RemoteAction.SPA.myFunction}' : {
+				timeout : 250,
+				method : function(args){
+					console.log('args',args);
+					return { msg:  args[1]}
+				}
+			},
+			'{!$RemoteAction.SPA.myOtherFunction}' : {
+				timeout : 2000,
+				method : function(args){
+					console.log('args',args);
+					return { msg:  args[1]}
+				}
+			}
+		}
+	};
+
+	</script>
+	<script src="js/module.js"></script>
+	<script src="bower_components/jsr-mocks/dist/jsr-mocks.js"></script>
+
+	<script src="js/main.js"></script>
+</html>
