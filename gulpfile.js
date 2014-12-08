@@ -48,6 +48,12 @@ gulp.task('zip', function(){
         .pipe(zip('static_resource.zip'))
         .pipe(gulp.dest('dist'));
 });
+var bower = require('gulp-bower');
 
-gulp.task('default', ['scripts','styles', 'images', 'watch', 'webserver']);
+gulp.task('bower', function() {
+  return bower({  cwd: './src' })
+
+});
+
+gulp.task('default', ['bower','scripts','styles', 'images', 'watch', 'webserver']);
 
