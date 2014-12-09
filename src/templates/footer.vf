@@ -1,0 +1,3 @@
+<script src="{!URLFOR($Resource.spa_sample, 'js/module.js')}"></script>
+<script src="{!URLFOR($Resource.spa_sample, 'js/main.js')}"></script>
+</apex:page>

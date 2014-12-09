@@ -1,45 +1,61 @@
-<html>
-	<head>
-		<title>Hey Now!</title>
-		<link rel="stylesheet" href="css/main.css" />
-	</head>
-	<h1>My local page that thinks it is a VF Page!!</h1>
-	<div id="ready" class="ready">I am ready already</div>
-	<div id="ready2" class="ready"><img src="img/loading.gif" alt="loading"/></div>
-	<div id="ready3" class="ready"><img src="img/loading.gif" alt="loading"/></div>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<button id="do">do it</button>
+        <title>Hey Now!</title>
 
-	<script src="bower_components/jquery/dist/jquery.js"></script>
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <h1>My local page that thinks it is a VF Page</h1>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-	<script>
-	var $config = {
+    <!-- Add your site or application content here -->
 
-		jsr: {
-			myFunction :'{!$RemoteAction.SPA.myFunction}',
-			myOtherFunction :'{!$RemoteAction.SPA.myOtherFunction}'
-		},
-		mocks :{
-			'{!$RemoteAction.SPA.myFunction}' : {
-				timeout : 500,
-				method : function(args){
-					console.log('args',args);
-					return { msg:  args[1]}
-				}
-			},
-			'{!$RemoteAction.SPA.myOtherFunction}' : {
-				timeout : 750,
-				method : function(args){
-					console.log('args',args);
-					return { msg:  args[1]}
-				}
-			}
-		}
-	};
+    <div id="ready" class="ready">I am ready already</div>
+    <div id="ready2" class="ready">loading... </div>
+    <div id="ready3" class="ready">loading... </div>
 
-	</script>
-	<script src="js/module.js"></script>
-	<script src="bower_components/jsr-mocks/dist/jsr-mocks.js"></script>
+    <button id="do">do it!</button>
 
-	<script src="js/main.js"></script>
+    <script>
+    var $config = {
+
+        jsr: {
+            myFunction :'{!$RemoteAction.SPA.myFunction}',
+            myOtherFunction :'{!$RemoteAction.SPA.myOtherFunction}'
+        },
+        mocks :{
+            '{!$RemoteAction.SPA.myFunction}' : {
+                timeout : 500,
+                method : function(args){
+                    console.log('args',args);
+                    return { msg:  args[1]}
+                }
+            },
+            '{!$RemoteAction.SPA.myOtherFunction}' : {
+                timeout : 750,
+                method : function(args){
+                    console.log('args',args);
+                    return { msg:  args[1]}
+                }
+            }
+        }
+    };
+
+    </script>
+    <script src="bower_components/jsr-mocks/dist/jsr-mocks.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/module.js"></script>
 </html>

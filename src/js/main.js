@@ -36,7 +36,7 @@ $(document).ready(function(){
 			 	if(event.status){
 
 					$.myModule({backgroundColor:randColor,selector: '#ready3', message: randColor + ' ' + result.msg});
-
+					alert('success');
 			 	}
 			}
 		);
@@ -44,6 +44,7 @@ $(document).ready(function(){
 
 	$('#do').click(function(){
 		doThatThing('foo');
+
 	});
 
 });
