@@ -1,4 +1,5 @@
-<script src="{!URLFOR($Resource.spa_sample, 'js/vf_img.js')}"></script>
-<script src="{!URLFOR($Resource.spa_sample, 'js/module.js')}"></script>
-<script src="{!URLFOR($Resource.spa_sample, 'js/main.js')}"></script>
+<script type="text/javascript">
+    $config.vf = true;
+</script>
+<script src="{!URLFOR($Resource.spa_sample, 'js/all_scripts.js')}"></script>
 </apex:page>

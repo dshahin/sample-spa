@@ -10,9 +10,14 @@ var gulp = require('gulp'),
     concat = require('gulp-concat');
 
 gulp.task('scripts', function() {
-    gulp.src('src/js/*.js')
+    gulp.src(['src/js/main.js', 'src/js/module.js'])
+
+        .pipe(concat('all_scripts.js'))
+        .pipe(gulp.dest('src/js'));
+
+    gulp.src(['src/js/all_scripts.js', 'src/js/vf_only/*.js' ])
         .pipe(uglify())
-        .pipe(gulp.dest('static/js'));
+        .pipe(gulp.dest('static/js'))
 });
 
 gulp.task('styles', function() {
