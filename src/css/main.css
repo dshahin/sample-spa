@@ -1,6 +1,6 @@
 body{
 	font-family: sans-serif;
-	margin: 2vw;
+	margin: 4vw;
 }
 
 #ready{
@@ -10,7 +10,7 @@ body{
 div.ready{
 	padding: 1vw;
     font-size: 3vw;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 h1{

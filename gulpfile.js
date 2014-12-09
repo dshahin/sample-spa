@@ -45,8 +45,12 @@ gulp.task('webserver', function() {
 
 gulp.task('watch', function() {
 
-    gulp.watch('src/js/*.js', ['scripts', 'zip']);
-    gulp.watch('src/css/*.css', ['styles', 'zip']);
+    gulp.watch('src/js/*.js', ['scripts']);
+    gulp.watch('src/css/*.css', ['styles']);
+
+    gulp.watch('static/js/*.js', [ 'zip']);
+    gulp.watch('static/css/*.css', [ 'zip']);
+
     gulp.watch('src/body.html', ['pages']);
     gulp.watch('src/templates/**', ['pages']);
     //to do: add images
@@ -91,4 +95,4 @@ gulp.task('vf', function(){
 });
 
 
-gulp.task('default', ['bower', 'scripts', 'styles', 'images', 'watch', 'pages', 'webserver', 'zip']);
+gulp.task('default', ['bower', 'scripts', 'styles', 'images', 'pages', 'webserver', 'zip', 'watch']);
