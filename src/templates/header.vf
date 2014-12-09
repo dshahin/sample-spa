@@ -1,4 +1,4 @@
-<apex:page  doctype="HTML-5.0" title="My VF SPA" showHeader="false" sidebar="false" controller="SPA">
+<apex:page  doctype="HTML-5.0" title="My VF SPA" showHeader="false" sidebar="false" controller="SPA" standardStylesheets="false">
 <apex:stylesheet value="{!URLFOR($Resource.spa_sample, 'css/normalize.css')}"/>
 <apex:stylesheet value="{!URLFOR($Resource.spa_sample, 'css/main.css')}"/>
 <script src="{!URLFOR($Resource.spa_sample, 'bower_components/jquery/dist/jquery.js')}"></script>

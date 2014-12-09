@@ -1,12 +1,23 @@
 body{
 	font-family: sans-serif;
-	margin: 12px;
-    font-size: 24px;
+	margin: 2vw;
 }
+
 #ready{
 	background-color: green;
-
 }
+
 div.ready{
-	padding-bottom: 5px;
+	padding: 1vw;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+h1{
+    font-size: 6vw;
+}
+
+button{
+    margin-top: 10px;
+    font-size: 5vw;
 }

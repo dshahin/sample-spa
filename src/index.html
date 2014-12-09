@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/main.css" />
     </head>
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <h1>My local page that thinks it is a VF Page</h1>
+    <h1>My HTML Page with jsr-mocks</h1>
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -27,7 +27,7 @@
     <div id="ready2" class="ready">loading... </div>
     <div id="ready3" class="ready">loading... </div>
 
-    <button id="do">do it!</button>
+    <button id="do">do it</button>
 
     <script>
     var $config = {
@@ -55,6 +55,7 @@
     };
 
     </script>
+    <!-- load our javascript resources at the end -->
     <script src="bower_components/jsr-mocks/dist/jsr-mocks.js"></script>
     <script src="js/main.js"></script>
     <script src="js/module.js"></script>

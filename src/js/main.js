@@ -34,16 +34,14 @@ $(document).ready(function(){
 			function(result,event){
 				console.log('mock result:',result);
 			 	if(event.status){
-
 					$.myModule({backgroundColor:randColor,selector: '#ready3', message: randColor + ' ' + result.msg});
-					alert('success');
 			 	}
 			}
 		);
 	}
 
 	$('#do').click(function(){
-		doThatThing('foo');
+		doThatThing(' dynamically');
 
 	});
 
