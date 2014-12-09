@@ -5,7 +5,7 @@ $(document).ready(function(){
 		$config.jsr.myFunction,
 		'now I am ready',
 		function(result,event){
-			console.log('mock result:',result);
+			//console.log('mock result:',result);
 		 	if(event.status){
 
 				$.myModule({backgroundColor:'lightgreen',selector: '#ready2', message: result.msg });
@@ -17,7 +17,7 @@ $(document).ready(function(){
 		$config.jsr.myOtherFunction,
 		'and I am ready now too',
 		function(result,event){
-			console.log('mock result:',result);
+			//console.log('mock result:',result);
 		 	if(event.status){
 
 				$.myModule({backgroundColor:'lightblue',selector: '#ready3', message: result.msg});
@@ -41,7 +41,7 @@ $(document).ready(function(){
 	}
 
 	$('#do').click(function(){
-		doThatThing(' dynamically');
+		doThatThing(' dynamically! ');
 
 	});
 

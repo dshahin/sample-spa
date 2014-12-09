@@ -9,7 +9,6 @@ var gulp = require('gulp'),
     //template = require('gulp-template'),
     concat = require('gulp-concat');
 
-
 gulp.task('scripts', function() {
     gulp.src('src/js/*.js')
         .pipe(uglify())
@@ -50,8 +49,6 @@ gulp.task('watch', function() {
 
     gulp.watch('static/js/*.js', [ 'zip']);
     gulp.watch('static/css/*.css', [ 'zip']);
-
-    gulp.watch('src/body.html', ['pages']);
     gulp.watch('src/templates/**', ['pages']);
     //to do: add images
 
@@ -71,25 +68,23 @@ gulp.task('bower', function() {
     })
 });
 
-
 gulp.task('pages', function() {
     //this is our local live copy
-    gulp.src(['./src/templates/header.html', 'src/body.html', './src/templates/footer.html'])
+    gulp.src(['./src/templates/header.html', 'src/templates/body.html', './src/templates/footer.html'])
         .pipe(concat('index.html'))
         .pipe(gulp.dest('src'));
 
     //this is a copy of the VF page (may be redundant)
-    gulp.src(['./src/templates/header.vf', 'src/body.html', './src/templates/footer.vf'])
+    gulp.src(['./src/templates/header.vf', 'src/templates/body.html', './src/templates/footer.vf'])
         .pipe(concat('index.vf.page'))
         .pipe(gulp.dest('dist'));
-
 
 });
 
 //this is not a default task
 gulp.task('vf', function(){
     //save this to a local page in our MavensMate IDE -  must then save to server
-    gulp.src(['./src/templates/header.vf', 'src/body.html', './src/templates/footer.vf'])
+    gulp.src(['./src/templates/header.vf', 'src/templates/body.html', './src/templates/footer.vf'])
         .pipe(concat('SPA.page'))
         .pipe(gulp.dest('../../src/pages'));
 });

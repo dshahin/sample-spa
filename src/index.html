@@ -24,10 +24,10 @@
     <!-- Add your site or application content here -->
 
     <div id="ready" class="ready">I am ready already</div>
-    <div id="ready2" class="ready">loading... </div>
-    <div id="ready3" class="ready">loading... </div>
+    <div id="ready2" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
+    <div id="ready3" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
 
-    <button id="do">do it</button>
+    <button id="do">do it!!!</button>
 
     <script>
     var $config = {
@@ -36,24 +36,26 @@
             myFunction :'{!$RemoteAction.SPA.myFunction}',
             myOtherFunction :'{!$RemoteAction.SPA.myOtherFunction}'
         },
+        img: {
+            '.loading' : "{!URLFOR($Resource.spa_sample, 'img/loading.gif')}"
+        },
         mocks :{
             '{!$RemoteAction.SPA.myFunction}' : {
-                timeout : 500,
+                timeout : 2000,
                 method : function(args){
-                    console.log('args',args);
+                    //console.log('args',args);
                     return { msg:  args[1]}
                 }
             },
             '{!$RemoteAction.SPA.myOtherFunction}' : {
                 timeout : 750,
                 method : function(args){
-                    console.log('args',args);
+                    //console.log('args',args);
                     return { msg:  args[1]}
                 }
             }
         }
     };
-
     </script>
     <!-- load our javascript resources at the end -->
     <script src="bower_components/jsr-mocks/dist/jsr-mocks.js"></script>
