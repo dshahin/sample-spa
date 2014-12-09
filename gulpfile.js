@@ -17,6 +17,7 @@ gulp.task('scripts', function() {
 
     gulp.src(['src/js/all_scripts.js', 'src/js/vf_only/*.js' ])
         .pipe(uglify())
+        .pipe(concat('all_scripts.js'))
         .pipe(gulp.dest('static/js'))
 });
 
@@ -50,6 +51,7 @@ gulp.task('webserver', function() {
 gulp.task('watch', function() {
 
     gulp.watch('src/js/*.js', ['scripts']);
+    gulp.watch('src/js/vf_only/*.js', ['scripts']);
     gulp.watch('src/css/*.css', ['styles']);
 
     gulp.watch('static/js/*.js', [ 'zip']);
