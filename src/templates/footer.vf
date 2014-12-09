@@ -1,11 +1,4 @@
-<script>
-    for(var img in $config.img){
-        var src = $config.img[img];
-        $(img).each(function(){
-            $(this).attr({src: $config.img[img]});
-        });
-    }
-</script>
+<script src="{!URLFOR($Resource.spa_sample, 'js/vf_img.js')}"></script>
 <script src="{!URLFOR($Resource.spa_sample, 'js/module.js')}"></script>
 <script src="{!URLFOR($Resource.spa_sample, 'js/main.js')}"></script>
 </apex:page>
