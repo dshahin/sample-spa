@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver'),
     zip = require('gulp-zip'),
     imagemin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant');
+    pngquant = require('imagemin-pngquant'),
+    webdriver_standalone = require("gulp-protractor").webdriver_standalone;;
 console.log(env);
 // Scripts Task
 gulp.task('scripts',function(){
@@ -59,8 +60,11 @@ var bower = require('gulp-bower');
 
 gulp.task('bower', function() {
   return bower({  cwd: './src' })
-
 });
+
+
+gulp.task('test', webdriver_standalone);
+
 
 gulp.task('default', ['bower','scripts','styles', 'images', 'watch', 'webserver']);
 
