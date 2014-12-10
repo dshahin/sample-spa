@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     //template = require('gulp-template'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    run = require('gulp-run');
 
 gulp.task('scripts', function() {
     gulp.src(['src/js/main.js', 'src/js/module.js'])
@@ -96,5 +97,11 @@ gulp.task('vf', function(){
         .pipe(gulp.dest('../../src/pages'));
 });
 
+gulp.task('push', function(){
+    run('cd ../..; force push src/pages/SPA.page').exec();
+    //run('cd ../..; force push -t StaticResource -n spa_sample').exec();
 
-gulp.task('default', ['bower', 'scripts', 'styles', 'images', 'pages', 'webserver', 'zip', 'watch']);
+ })
+
+
+gulp.task('default', ['bower', 'scripts', 'styles', 'images', 'pages', 'webserver', 'zip', 'vf', 'watch']);
