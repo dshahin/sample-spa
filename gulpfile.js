@@ -6,17 +6,16 @@ var gulp = require('gulp'),
     zip = require('gulp-zip'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
-    //template = require('gulp-template'),
     concat = require('gulp-concat'),
     run = require('gulp-run');
 
 gulp.task('scripts', function() {
     gulp.src(['src/js/main.js', 'src/js/module.js'])
 
-        .pipe(concat('all_scripts.js'))
+    .pipe(concat('all_scripts.js'))
         .pipe(gulp.dest('src/js'));
 
-    gulp.src(['src/js/all_scripts.js', 'src/js/vf_only/*.js' ])
+    gulp.src(['src/js/all_scripts.js', 'src/js/vf_only/*.js'])
         .pipe(uglify())
         .pipe(concat('all_scripts.js'))
         .pipe(gulp.dest('static/js'))
@@ -29,7 +28,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('images', function() {
-    gulp.src('src/img/**')
+    gulp.src('src/img/*')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{
@@ -55,9 +54,9 @@ gulp.task('watch', function() {
     gulp.watch('src/js/vf_only/*.js', ['scripts']);
     gulp.watch('src/css/*.css', ['styles']);
 
-    gulp.watch('static/js/*.js', [ 'zip']);
-    gulp.watch('static/css/*.css', [ 'zip']);
-    gulp.watch('src/templates/**', ['pages']);
+    gulp.watch('static/js/*.js', ['zip']);
+    gulp.watch('static/css/*.css', ['zip']);
+    gulp.watch('src/templates/**', ['pages', 'vf']);
     //to do: add images
 
 });
@@ -89,19 +88,18 @@ gulp.task('pages', function() {
 
 });
 
-//this is not a default task
-gulp.task('vf', function(){
+gulp.task('vf', function() {
     //save this to a local page in our MavensMate IDE -  must then save to server
     gulp.src(['./src/templates/header.vf', 'src/templates/body.html', './src/templates/footer.vf'])
         .pipe(concat('SPA.page'))
         .pipe(gulp.dest('../../src/pages'));
 });
 
-gulp.task('push', function(){
+gulp.task('push', function() {
     run('cd ../..; force push src/pages/SPA.page').exec();
     //run('cd ../..; force push -t StaticResource -n spa_sample').exec();
 
- })
+})
 
 
-gulp.task('default', ['bower', 'scripts', 'styles', 'images', 'pages', 'webserver', 'zip', 'vf', 'watch']);
+gulp.task('default', ['bower', 'scripts', 'styles', 'images', 'pages', 'webserver', 'zip', 'watch']);

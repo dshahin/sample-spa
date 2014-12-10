@@ -1,40 +1,35 @@
-    <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    <!-- Add your site or application content here -->
+<!-- Add your site or application content here -->
 
-    <div id="ready" class="ready">I am ready already!!!</div>
-    <div id="ready2" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
-    <div id="ready3" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
+<div id="ready" class="ready">I am ready already</div>
+<div id="ready2" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
+<div id="ready3" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
 
-    <button id="do">do it!!!</button>
+<button id="do">do it</button>
 
-    <script>
-    var $config = {
-        vf : false,
-        jsr: {
-            myFunction :'{!$RemoteAction.SPA.myFunction}',
-            myOtherFunction :'{!$RemoteAction.SPA.myOtherFunction}'
+<script>
+var $config = {
+    jsr: {
+        myFunction :'{!$RemoteAction.SPA.myFunction}',
+        myOtherFunction :'{!$RemoteAction.SPA.myOtherFunction}'
+    },
+    baseImg : "{!URLFOR($Resource.spa_sample, '')}",
+    mocks :{
+        '{!$RemoteAction.SPA.myFunction}' : {
+            timeout : 500,
+            method : function(args){
+                return { msg:  args[1]};
+            }
         },
-        img: {
-            '_base' : "{!URLFOR($Resource.spa_sample, 'img/loading.gif')}"
-        },
-        mocks :{
-            '{!$RemoteAction.SPA.myFunction}' : {
-                timeout : 2000,
-                method : function(args){
-                    //console.log('args',args);
-                    return { msg:  args[1]}
-                }
-            },
-            '{!$RemoteAction.SPA.myOtherFunction}' : {
-                timeout : 750,
-                method : function(args){
-                    //console.log('args',args);
-                    return { msg:  args[1]}
-                }
+        '{!$RemoteAction.SPA.myOtherFunction}' : {
+            timeout : 750,
+            method : function(args){
+                return { msg:  args[1]};
             }
         }
-    };
-    </script>
+    }
+};
+</script>

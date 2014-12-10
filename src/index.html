@@ -2,64 +2,61 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-        <title>Hey Now!</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/normalize.css" />
-        <link rel="stylesheet" href="css/main.css" />
-    </head>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <h1>My HTML Page with jsr-mocks</h1>
-    <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <title>Hey Now!</title>
 
-    <!-- Add your site or application content here -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<h1>My HTML Page with jsr-mocks</h1>
 
-    <div id="ready" class="ready">I am ready already!!!</div>
-    <div id="ready2" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
-    <div id="ready3" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
+<!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    <button id="do">do it!!!</button>
+<!-- Add your site or application content here -->
 
-    <script>
-    var $config = {
-        vf : false,
-        jsr: {
-            myFunction :'{!$RemoteAction.SPA.myFunction}',
-            myOtherFunction :'{!$RemoteAction.SPA.myOtherFunction}'
+<div id="ready" class="ready">I am ready already</div>
+<div id="ready2" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
+<div id="ready3" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
+
+<button id="do">do it</button>
+
+<script>
+var $config = {
+    jsr: {
+        myFunction :'{!$RemoteAction.SPA.myFunction}',
+        myOtherFunction :'{!$RemoteAction.SPA.myOtherFunction}'
+    },
+    baseImg : "{!URLFOR($Resource.spa_sample, '')}",
+    mocks :{
+        '{!$RemoteAction.SPA.myFunction}' : {
+            timeout : 500,
+            method : function(args){
+                return { msg:  args[1]};
+            }
         },
-        img: {
-            '_base' : "{!URLFOR($Resource.spa_sample, 'img/loading.gif')}"
-        },
-        mocks :{
-            '{!$RemoteAction.SPA.myFunction}' : {
-                timeout : 2000,
-                method : function(args){
-                    //console.log('args',args);
-                    return { msg:  args[1]}
-                }
-            },
-            '{!$RemoteAction.SPA.myOtherFunction}' : {
-                timeout : 750,
-                method : function(args){
-                    //console.log('args',args);
-                    return { msg:  args[1]}
-                }
+        '{!$RemoteAction.SPA.myOtherFunction}' : {
+            timeout : 750,
+            method : function(args){
+                return { msg:  args[1]};
             }
         }
-    };
-    </script>
+    }
+};
+</script>
     <!-- load our javascript resources at the end -->
     <script src="bower_components/jsr-mocks/dist/jsr-mocks.js"></script>
-
-
     <script src="js/all_scripts.js"></script>
 </html>

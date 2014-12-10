@@ -7,7 +7,6 @@ $(document).ready(function(){
 		function(result,event){
 			//console.log('mock result:',result);
 		 	if(event.status){
-
 				$.myModule({backgroundColor:'lightgreen',selector: '#ready2', message: result.msg });
 		 	}
 		}

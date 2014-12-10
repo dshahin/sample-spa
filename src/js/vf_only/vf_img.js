@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
     $('img').hide(); //hide all images (to prevent showing broken img)
-    var static_base = $config.img['_base'],
+    var static_base = $config.baseImg,
         parts = static_base.split(/\//),
         base_img_url = '/' + parts[1] + '/' + parts[2] + '/' + parts[3] + '/';
     console.log(static_base, base_img_url);
