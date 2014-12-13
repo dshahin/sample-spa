@@ -1,14 +1,3 @@
-
-
-<!-- Add your site or application content here -->
-
-<div id="ready" class="ready">I am ready already</div>
-<div id="ready2" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
-<div id="ready3" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
-
-<button id="do">do it!</button>
-
-<script>
 var $config = {
     jsr: {
         myFunction :'{!$RemoteAction.SPA.myFunction}',
@@ -30,4 +19,3 @@ var $config = {
         }
     }
 };
-</script>

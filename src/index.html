@@ -18,12 +18,15 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
 </head>
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<h1>My HTML Page with jsr-mocks</h1>
 
 <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<h1>My HTML Page with jsr-mocks</h1>
+
+
 
 <!-- Add your site or application content here -->
 
@@ -31,7 +34,7 @@
 <div id="ready2" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
 <div id="ready3" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
 
-<button id="do">do it</button>
+<button id="do">do it!</button>
 
 <script>
 var $config = {
@@ -42,13 +45,13 @@ var $config = {
     baseImg : "{!URLFOR($Resource.spa_sample, '')}",
     mocks :{
         '{!$RemoteAction.SPA.myFunction}' : {
-            timeout : 500,
+            timeout : 750,
             method : function(args){
                 return { msg:  args[1]};
             }
         },
         '{!$RemoteAction.SPA.myOtherFunction}' : {
-            timeout : 750,
+            timeout : 1000  ,
             method : function(args){
                 return { msg:  args[1]};
             }

@@ -26,12 +26,12 @@ body{
 }
 
 #ready{
-	background-color: orange;
+	background-color: red;
 }
 
 div.ready{
 	padding: 1vw;
-    font-size: 3vw;
+    font-size: 5vw;
     font-weight: bold;
 }
 
@@ -41,5 +41,5 @@ h1{
 
 button{
     margin-top: 10px;
-    font-size: 5vw;
+    font-size: 10vw;
 }

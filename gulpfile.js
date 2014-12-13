@@ -7,18 +7,22 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     concat = require('gulp-concat'),
-    run = require('gulp-run');
+    run = require('gulp-run'),
+    karma = require('gulp-karma');
 
 gulp.task('scripts', function() {
     gulp.src(['src/js/main.js', 'src/js/module.js'])
 
     .pipe(concat('all_scripts.js'))
-        .pipe(gulp.dest('src/js'));
+        .pipe(gulp.dest('src/js'))
+        .on('error', swallowError);
 
     gulp.src(['src/js/all_scripts.js', 'src/js/vf_only/*.js'])
         .pipe(uglify())
+        .on('error', swallowError)
         .pipe(concat('all_scripts.js'))
-        .pipe(gulp.dest('static/js'))
+        .on('error', swallowError)
+        .pipe(gulp.dest('static/js'));
 });
 
 gulp.task('styles', function() {
@@ -39,7 +43,7 @@ gulp.task('images', function() {
         .pipe(gulp.dest('static/img'));
 });
 
-gulp.task('webserver', function() {
+gulp.task('serve', function() {
     gulp.src('src')
         .pipe(webserver({
             livereload: true,
@@ -50,11 +54,11 @@ gulp.task('webserver', function() {
 
 gulp.task('watch', function() {
 
-    gulp.watch('src/js/*.js', ['scripts']);
-    gulp.watch('src/js/vf_only/*.js', ['scripts']);
+    gulp.watch('src/js/*.js', ['scripts','unit']);
+    gulp.watch('src/js/vf_only/*.js', ['scripts','unit']);
     gulp.watch('src/css/*.css', ['styles']);
 
-    gulp.watch('static/js/*.js', ['zip']);
+    gulp.watch('static/js/*.js', ['zip','unit']);
     gulp.watch('static/css/*.css', ['zip']);
     gulp.watch('src/templates/**', ['pages', 'vf']);
     //to do: add images
@@ -99,7 +103,35 @@ gulp.task('push', function() {
     run('cd ../..; force push src/pages/SPA.page').exec();
     //run('cd ../..; force push -t StaticResource -n spa_sample').exec();
 
-})
+});
+
+var testFiles = [
+
+        'src/bower_components/jquery/dist/jquery.js',
+        'test/config.js',
+        'src/bower_components/jsr-mocks/dist/jsr-mocks.js',
+        'src/js/*.js',
+        'test/unit/*.js'
+    ];
+
+gulp.task('unit', function() {
+    //run('cd ../..; karma start').exec();
+
+    return gulp.src(testFiles)
+    .pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'start'
+    }));
+});
 
 
-gulp.task('default', ['bower', 'scripts', 'styles', 'images', 'pages', 'webserver', 'zip', 'watch']);
+gulp.task('default', ['bower',  'styles', 'images', 'pages', 'unit', 'scripts', 'zip','watch','serve']);
+
+
+function swallowError (error) {
+
+    //If you want details of the error in the console
+    console.log(error.toString());
+
+    this.emit('end');
+}

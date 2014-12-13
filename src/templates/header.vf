@@ -3,4 +3,7 @@
 <apex:stylesheet value="{!URLFOR($Resource.spa_sample, 'css/main.css')}"/>
 <script src="{!URLFOR($Resource.spa_sample, 'bower_components/jquery/dist/jquery.min.js')}"></script>
 <title>My VF SPA</title>
+<!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 <h1>My VF SPA Page</h1>
