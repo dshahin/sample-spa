@@ -44,4 +44,11 @@ $(document).ready(function(){
 
 	});
 
+	$('#input').on('keyup', function(){
+		var $input = $(this),
+			val = $input.val();
+		$('#ready4').text(val);
+
+	});
+
 });

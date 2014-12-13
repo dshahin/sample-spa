@@ -5,13 +5,15 @@ describe("health", function(){
 	describe("index", function(){
 		it("should display the correct title", function(){
 			browser.get('/');
-			expect( browser.getTitle() ).toBe('http://localhost:8000/');
+			expect( browser.getTitle() ).toBe('Hey Now!');
 		});
 
 		it("it should be ready", function(){
 			var ready = element(by.id('ready')),
 				ready2 = element(by.id('ready2')),
 				ready3 = element(by.id('ready3')),
+				ready4 = element(by.id('ready4')),
+				input = element(by.id('input')),
 				doButton = element(by.id('do')),
 				currentUrl;
 
@@ -32,6 +34,10 @@ describe("health", function(){
 					expect(ready3.getText()).toBe('and I am ready now too');
 				});
 
+			}).then(function(){
+				var inputText = 'Howdy!'
+				input.sendKeys(inputText);
+				expect(ready4.getText()).toBe(inputText);
 			}).then(function(){
 				doButton.click().then(function(){
 					browser.wait(function() {

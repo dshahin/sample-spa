@@ -44,6 +44,13 @@ $(document).ready(function(){
 
 	});
 
+	$('#input').on('keyup', function(){
+		var $input = $(this),
+			val = $input.val();
+		$('#ready4').text(val);
+
+	});
+
 });
 
 /*! myModule - v1.0.0 - 2014-11-24
