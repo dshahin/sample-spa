@@ -40,7 +40,7 @@ $(document).ready(function(){
 	}
 
 	$('#do').click(function(){
-		doThatThing(' dynamically! ');
+		doThatThing($('#input').val());
 
 	});
 

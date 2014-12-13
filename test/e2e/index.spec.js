@@ -35,9 +35,11 @@ describe("health", function(){
 				});
 
 			}).then(function(){
+				//make sure text in input is mirrored in #ready4
 				var inputText = 'Howdy!'
 				input.sendKeys(inputText);
 				expect(ready4.getText()).toBe(inputText);
+
 			}).then(function(){
 				doButton.click().then(function(){
 					browser.wait(function() {
@@ -46,7 +48,7 @@ describe("health", function(){
 			            });
 			        },4000).then(function(){
 
-			        	expect(ready3.getText()).toContain('dynamically');
+			        	expect(ready3.getText()).toContain('Howdy!');
 
 			        });
 				});
