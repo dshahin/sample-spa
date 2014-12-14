@@ -8,13 +8,19 @@ installation
 
  * ```npm install```
  * ```gulp``` - watches for changes in src and automatically runs grunt tasks
- * ```protractor``` (while page is being served locally)
+
+testing
+==========
+Unit tests run automatically every time the javascript or tests change.  Uses karma.js testrunner to run jasmine tests in mutiple browsers simultaneously.  Watch the output of gulp when saving a source file for test results.
+
+To run functional tests, type ```protractor``` from a separate terminal window, while serving the page (either via ```gulp serve``` or simply ```gulp```.  You may need to edit protractor.conf.js to point to your local selenium drivers.  Use ```webdriver-manager``` to install and manage your drivers, which is included when you install protractor.js globally.
 
 the stack
 ==========
 * node.js - running locally to power most of the stack
 * npm - manage developer dependencies
 * bower - front end dependency managment for static resource
+* jasmine - the test framework used in both protractor and karma 
 * jsr-mocks - local browser shim for javascript remoting manager
 * karma - continuous unit testing
 * protractor - simultaneous functional testing in multiple browsers
