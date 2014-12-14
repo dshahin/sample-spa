@@ -2,6 +2,10 @@ Salesforce SPA
 ==========
 Use modern front end tools to develop Single Page Apps for the Force.com platform.
 All deployed static resources and visualforce page are generated automatically.
+This repo is an example for reference, and is meant to be installed as part of a Saleforce project in MavensMate.
+It assumes there is a top level directory at the same level as src called ```spa```, with apps in ```spa/appName.spa```
+
+The files are generated into the ```dist``` directory, a Visualforce page and a zipped static resource.  There is also an example Apex controller that works with the example page and resource. 
 
 installation
 ==========
