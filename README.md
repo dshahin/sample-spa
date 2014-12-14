@@ -1,4 +1,4 @@
-the idea
+Salesforce SPA
 ==========
 Use modern front end tools to develop Single Page Apps for the Force.com platform.
 All deployed static resources and visualforce page are generated automatically.
@@ -12,12 +12,12 @@ installation
 
 the stack
 ==========
-* node.js - running locally to power the entire stack
+* node.js - running locally to power most of the stack
 * npm - manage developer dependencies
 * bower - front end dependency managment for static resource
 * jsr-mocks - local browser shim for javascript remoting manager
 * karma - continuous unit testing
-* protractor - local functional testing 
+* protractor - simultaneous functional testing in multiple browsers
 * gulp - build management
   * serve - serve the page to chrome
   * scripts - concatenate and minify scripts
