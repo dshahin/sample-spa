@@ -1,0 +1,50 @@
+<apex:page  doctype="HTML-5.0" title="My VF SPA" showHeader="false" sidebar="false" controller="SPA" standardStylesheets="false">
+<apex:stylesheet value="{!URLFOR($Resource.spa_sample, 'css/normalize.css')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.spa_sample, 'css/main.css')}"/>
+<script src="{!URLFOR($Resource.spa_sample, 'bower_components/jquery/dist/jquery.min.js')}"></script>
+<title>My VF SPA</title>
+<!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<h1>My VF SPA Page</h1>
+
+
+
+<!-- Add your site or application content here -->
+
+<div id="ready" class="ready">I am ready already</div>
+<div id="ready2" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
+<div id="ready3" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
+<div id="ready4" class="ready"><img src="img/loading.gif" alt="" class="loading"/></div>
+
+<button id="do">do it!</button>
+<input id="input" type="text" placeholder="type here"/>
+
+<script>
+var $config = {
+    jsr: {
+        myFunction :'{!$RemoteAction.SPA.myFunction}',
+        myOtherFunction :'{!$RemoteAction.SPA.myOtherFunction}'
+    },
+    baseImg : "{!URLFOR($Resource.spa_sample, '')}",
+    mocks :{
+        '{!$RemoteAction.SPA.myFunction}' : {
+            timeout : 750,
+            method : function(args){
+                return { msg:  args[1]};
+            }
+        },
+        '{!$RemoteAction.SPA.myOtherFunction}' : {
+            timeout : 1000  ,
+            method : function(args){
+                return { msg:  args[1]};
+            }
+        }
+    }
+};
+</script>
+<script type="text/javascript">
+    $config.vf = true;
+</script>
+<script src="{!URLFOR($Resource.spa_sample, 'js/all_scripts.js')}"></script>
+</apex:page>
